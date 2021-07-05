@@ -11,27 +11,27 @@ public class mainBiblioteca{
 
                 JOptionPane.showMessageDialog(null, "* Bem-vindo ao Programa Biblioteca !\n"+
                         "* Cadastro de Livros com Consulta do Acervo Cadastrado\n"+
-                        "* Aplicado para efeitos didáticos de Programação Orientada a Objetos\n"+
-                        "* Autor: Newton Gomes (Versão 2016)", 
-                        "Programa Biblioteca - 2016", JOptionPane.INFORMATION_MESSAGE);
+                        "* Aplicado para efeitos didÃ¡ticos de ProgramaÃ§Ã£o Orientada a Objetos\n"+
+                        "* Autor: Jose David (VersÃ£o 2021)", 
+                        "Programa Biblioteca - 2021", JOptionPane.INFORMATION_MESSAGE);
                 
                 biblio.setNome(JOptionPane.showInputDialog("Nome da Biblioteca:"));
-                biblio.setLocal(JOptionPane.showInputDialog("Localização da Biblioteca:"));
+                biblio.setLocal(JOptionPane.showInputDialog("LocalizaÃ§Ã£o da Biblioteca:"));
                 
                 Livro livro;
                 ArrayList<Livro> listaLivros;
                 int opcao = 0, cont;
                 String opcoes = 
                   "Biblioteca: "+biblio.getNome()+
-                  "\nLocalização: "+biblio.getLocal()+
-                  "\n\n***Opções*** "+
+                  "\nLocalizaÃ§Ã£o: "+biblio.getLocal()+
+                  "\n\n***OpÃ§Ãµes*** "+
                   "\n1. Cadastrar Livro"+
-                  "\n2. Pesquisar Livro (código)"+
-                  "\n3. Pesquisar Livro (título)"+
+                  "\n2. Pesquisar Livro (cÃ³digo)"+
+                  "\n3. Pesquisar Livro (tÃ­tulo)"+
                   "\n4. Listar Livros"+
-                  "\n5. Informações"+
+                  "\n5. InformaÃ§Ãµes"+
                   "\n6. Finalizar"+
-                  "\n\nSelecione a opção: ";
+                  "\n\nSelecione a opÃ§Ã£o: ";
 
                 while (opcao != 6) 
                 {
@@ -58,14 +58,14 @@ public class mainBiblioteca{
                                 break;
                           case 2:
                                   livro = biblio.obterLivro(Integer.parseInt(
-                                                  JOptionPane.showInputDialog("Digite código para pesquisar:")));
+                                                  JOptionPane.showInputDialog("Digite cÃ³digo para pesquisar:")));
                                   if (livro != null)
                                           mostrarLivro(livro,biblio.getNome());
                                   else
-                                          JOptionPane.showMessageDialog(null, "Livro Não Localizado!");
+                                          JOptionPane.showMessageDialog(null, "Livro NÃ£o Localizado!");
                                 break;
                           case 3:
-                                  listaLivros = biblio.obterLivro(JOptionPane.showInputDialog("Digite Título do Livro para pesquisar:"));
+                                  listaLivros = biblio.obterLivro(JOptionPane.showInputDialog("Digite TÃ­tulo do Livro para pesquisar:"));
                                   cont = 0;
                                   if (listaLivros.size() > 0){
                                           for(Livro liv : listaLivros){
@@ -75,7 +75,7 @@ public class mainBiblioteca{
                                           }
                                   }
                                   else
-                                          JOptionPane.showMessageDialog(null, "Título de Livro Não Localizado!");
+                                          JOptionPane.showMessageDialog(null, "TÃ­tulo de Livro NÃ£o Localizado!");
                                   break;
                           case 4:{
                                   StringBuffer lista = new StringBuffer();
@@ -92,10 +92,10 @@ public class mainBiblioteca{
                                   break;
                           }
                           case 5:
-                                        JOptionPane.showMessageDialog(null, "Informações da Biblioteca\n"+
+                                        JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes da Biblioteca\n"+
                                                         "Nome da Biblioteca: "+biblio.getNome()+"\n"+
-                                                        "Localização: "+biblio.getLocal()+"\n"+
-                                                        "Existem até o momento\n"+biblio.getQuantidade()+
+                                                        "LocalizaÃ§Ã£o: "+biblio.getLocal()+"\n"+
+                                                        "Existem atÃ© o momento\n"+biblio.getQuantidade()+
                                                         " livro(s) cadastrado(s)");
                                         break;
                         }
@@ -108,11 +108,11 @@ public class mainBiblioteca{
         static Livro digitarLivro()
         {
                 Livro liv = new Livro();
-                liv.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Código do Livro:")));
-                liv.setTitulo(JOptionPane.showInputDialog("Título do Livro:"));
+                liv.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("CÃ³digo do Livro:")));
+                liv.setTitulo(JOptionPane.showInputDialog("TÃ­tulo do Livro:"));
                 liv.setAutor(JOptionPane.showInputDialog("Autor do Livro:"));
-                liv.setISBN(JOptionPane.showInputDialog("Número ISBN do Livro:"));
-                liv.setNumPaginas(Integer.parseInt(JOptionPane.showInputDialog("Número de Páginas do Livro:")));
+                liv.setISBN(JOptionPane.showInputDialog("NÃºmero ISBN do Livro:"));
+                liv.setNumPaginas(Integer.parseInt(JOptionPane.showInputDialog("NÃºmero de PÃ¡ginas do Livro:")));
                 liv.setValorCompra(Float.parseFloat(JOptionPane.showInputDialog("Valor de Compra:")));
                 return liv;
         }
@@ -120,11 +120,11 @@ public class mainBiblioteca{
         static void mostrarLivro(Livro x,String bib)
         {
                 String texto = "Livro:\n"+
-                "\nCódigo: "+x.getCodigo()+
-                "\nTítulo: "+x.getTitulo()+
+                "\nCÃ³digo: "+x.getCodigo()+
+                "\nTÃ­tulo: "+x.getTitulo()+
                 "\nAutor: "+x.getAutor()+
                 "\nISBN: "+x.getISBN()+
-                "\nPáginas: "+x.getNumPaginas()+
+                "\nPÃ¡ginas: "+x.getNumPaginas()+
                 "\nValor: "+x.getValorCompra();
                 JOptionPane.showMessageDialog(null, texto, "Biblioteca: "+bib,
                                 JOptionPane.WARNING_MESSAGE);
